@@ -1,9 +1,29 @@
+import { useState } from 'react'
+import emailjs from '@emailjs/browser'
 import { FaGithub, FaLinkedin, FaEnvelope, FaPhone } from 'react-icons/fa'
 import { contact } from '../../data/contact'
 
 const Contact = () => {
+  const [status, setStatus] = useState('idle')
+
   const handleSubmit = (e) => {
     e.preventDefault()
+    setStatus('sending')
+
+    emailjs
+      .sendForm(
+        import.meta.env.VITE_EMAILJS_SERVICE_ID,
+        import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+        e.target,
+        import.meta.env.VITE_EMAILJS_PUBLIC_KEY
+      )
+      .then(() => {
+        setStatus('success')
+        e.target.reset()
+      })
+      .catch(() => {
+        setStatus('error')
+      })
   }
 
   return (
@@ -52,9 +72,17 @@ const Contact = () => {
           <input type="email" name="email" placeholder="Your Email" required className="w-full text-sm font-body px-4 py-2.5 rounded-lg border border-slate-300 dark:border-slate-600 bg-transparent text-slate-700 dark:text-slate-200 placeholder:text-slate-400 dark:placeholder:text-slate-500" />
           <input type="text" name="subject" placeholder="Subject" required className="w-full text-sm font-body px-4 py-2.5 rounded-lg border border-slate-300 dark:border-slate-600 bg-transparent text-slate-700 dark:text-slate-200 placeholder:text-slate-400 dark:placeholder:text-slate-500" />
           <textarea name="message" placeholder="Your Message" required rows={4} className="w-full text-sm font-body px-4 py-2.5 rounded-lg border border-slate-300 dark:border-slate-600 bg-transparent text-slate-700 dark:text-slate-200 placeholder:text-slate-400 dark:placeholder:text-slate-500" />
-          <button type="submit" className="w-full bg-navy dark:bg-mint text-white dark:text-slate-900 text-sm font-body font-medium py-2.5 rounded-lg">
-            Send Message
+
+          <button type="submit" disabled={status === 'sending'} className="w-full bg-navy dark:bg-mint text-white dark:text-slate-900 text-sm font-body font-medium py-2.5 rounded-lg disabled:opacity-60">
+            {status === 'sending' ? 'Sending...' : 'Send Message'}
           </button>
+
+          {status === 'success' && (
+            <p className="text-sm font-body text-emerald-600 dark:text-emerald-400">Message sent — thanks for reaching out!</p>
+          )}
+          {status === 'error' && (
+            <p className="text-sm font-body text-red-500">Something went wrong. Please try again or email me directly.</p>
+          )}
         </form>
       </div>
     </div>
