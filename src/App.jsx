@@ -3,6 +3,7 @@ import Sidebar from './components/Sidebar'
 import Topbar from './components/Topbar'
 import Dashboard from './components/sections/Dashboard'
 import Skills from './components/sections/Skills'
+import Experience from './components/sections/Experience'
 
 function App() {
   const [activeSection, setActiveSection] = useState('dashboard')
@@ -15,6 +16,7 @@ function App() {
         <div className="px-8 pb-8">
           {activeSection === 'dashboard' && <Dashboard />}
           {activeSection === 'skills' && <Skills />}
+          {activeSection === 'experience' && <Experience />}
         </div>
       </main>
     </div>
