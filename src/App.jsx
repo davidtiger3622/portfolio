@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import Sidebar from './components/Sidebar'
 import Topbar from './components/Topbar'
+import Dashboard from './components/sections/Dashboard'
 
 function App() {
   const [activeSection, setActiveSection] = useState('dashboard')
@@ -11,9 +12,7 @@ function App() {
       <main className="flex-1">
         <Topbar activeSection={activeSection} />
         <div className="px-8 pb-8">
-          <p className="text-slate-500 dark:text-slate-400">
-            Content for "{activeSection}" will go here.
-          </p>
+          {activeSection === 'dashboard' && <Dashboard />}
         </div>
       </main>
     </div>
