@@ -5,6 +5,7 @@ import Dashboard from './components/sections/Dashboard'
 import Skills from './components/sections/Skills'
 import Experience from './components/sections/Experience'
 import Projects from './components/sections/Projects'
+import Education from './components/sections/Education'
 
 function App() {
   const [activeSection, setActiveSection] = useState('dashboard')
@@ -19,6 +20,7 @@ function App() {
           {activeSection === 'skills' && <Skills />}
           {activeSection === 'experience' && <Experience />}
           {activeSection === 'projects' && <Projects />}
+          {activeSection === 'education' && <Education />}
         </div>
       </main>
     </div>
