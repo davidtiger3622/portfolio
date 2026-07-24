@@ -38,9 +38,11 @@ const ProjectCard = ({ project }) => {
             <a href={project.liveUrl} target="_blank" rel="noopener noreferrer" className="text-xs font-body font-medium bg-navy dark:bg-mint text-white dark:text-slate-900 px-3 py-2 rounded-lg">
               Live Demo
             </a>
+            {project.docsUrl !== project.liveUrl && (
             <a href={project.docsUrl} target="_blank" rel="noopener noreferrer" className="text-xs font-body font-medium border border-slate-300 dark:border-slate-600 text-slate-600 dark:text-slate-200 px-3 py-2 rounded-lg">
               API Docs
             </a>
+          )}
             <a href={project.githubUrl} target="_blank" rel="noopener noreferrer" className="text-xs font-body font-medium border border-slate-300 dark:border-slate-600 text-slate-600 dark:text-slate-200 px-3 py-2 rounded-lg">
               GitHub
             </a>
