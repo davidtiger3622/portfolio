@@ -1,0 +1,36 @@
+export const projects = [
+    {
+      id: 'auth-microservice',
+      name: 'Auth Microservice',
+      tagline: 'A standalone, plug-and-play authentication REST API',
+      image: '/projects/auth-microservice.png',
+      description: 'A production-ready authentication microservice built with Node.js and Express, designed to drop into any project that needs user auth. Handles the full lifecycle: registration with email verification, login with JWT access and refresh tokens, refresh token rotation, secure logout, and password reset — all backed by PostgreSQL.',
+      stack: ['Node.js', 'Express', 'PostgreSQL', 'JWT', 'bcrypt', 'Docker'],
+      highlights: [
+        'Refresh tokens are stored server-side and rotated on every use, not just long-lived JWTs',
+        'Passwords hashed with bcrypt at cost factor 12; tiered rate limiting on auth routes',
+        '28 passing tests (Jest + Supertest), Swagger/OpenAPI docs, GitHub Actions CI',
+        'Dockerized with docker-compose for one-command local setup',
+      ],
+      liveUrl: 'https://auth-microservice-0shc.onrender.com/api-docs/',
+      docsUrl: 'https://auth-microservice-0shc.onrender.com/api-docs/',
+      githubUrl: 'https://github.com/davidtiger3622/auth-microservice',
+    },
+    {
+      id: 'finance-tracker',
+      name: 'Personal Finance Tracker',
+      tagline: 'A full-stack app for tracking income, expenses, and spending patterns',
+      image: '/projects/finance-tracker.png',
+      description: 'A complete finance tracking application where users log income and expenses, then visualize spending through interactive charts. Built with a React frontend and a FastAPI backend, with analytics computed server-side — monthly trends, category breakdowns, and savings rate — rather than shipping raw data to the client.',
+      stack: ['React', 'FastAPI', 'PostgreSQL', 'SQLAlchemy', 'Recharts', 'JWT'],
+      highlights: [
+        'Axios interceptor auto-refreshes expired tokens and queues concurrent requests during refresh',
+        'Analytics computed in SQL (monthly trends, category breakdown, savings rate) rather than client-side',
+        'Deployed across three services: Vercel (frontend), Render (backend), Neon (Postgres)',
+        'CORS locked to specific known origins, not left open',
+      ],
+      liveUrl: 'https://finance-tracker-iota-self.vercel.app',
+      docsUrl: 'https://finance-tracker-api-hs9a.onrender.com/docs',
+      githubUrl: 'https://github.com/davidtiger3622/finance-tracker',
+    },
+  ]
