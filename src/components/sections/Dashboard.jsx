@@ -20,7 +20,7 @@ const Dashboard = ({ onNavigate }) => {
             </span>
           </div>
           <p className="font-display text-lg text-navy dark:text-mint mt-1">{profile.title}</p>
-          <p className="font-body text-slate-500 dark:text-slate-400 mt-3 max-w-none">
+          <p className="font-body text-slate-500 dark:text-slate-400 mt-3 max-w-4xl">
             {profile.bio}
           </p>
 
