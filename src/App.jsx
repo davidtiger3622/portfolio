@@ -17,7 +17,7 @@ function App() {
       <main className="flex-1">
         <Topbar activeSection={activeSection} />
         <div className="px-8 pb-8">
-          {activeSection === 'dashboard' && <Dashboard />}
+          {activeSection === 'dashboard' && <Dashboard onNavigate={setActiveSection} />}
           {activeSection === 'skills' && <Skills />}
           {activeSection === 'experience' && <Experience />}
           {activeSection === 'projects' && <Projects />}
