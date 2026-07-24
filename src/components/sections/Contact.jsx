@@ -1,3 +1,4 @@
+import { FaGithub, FaLinkedin, FaEnvelope, FaPhone } from 'react-icons/fa'
 import { contact } from '../../data/contact'
 
 const Contact = () => {
@@ -17,24 +18,26 @@ const Contact = () => {
 
         <div className="space-y-3">
           <a href={`mailto:${contact.email}`} className="flex items-center gap-3 text-sm font-body text-slate-600 dark:text-slate-200">
-            <span className="w-9 h-9 rounded-full bg-navy dark:bg-mint flex items-center justify-center text-white dark:text-slate-900 text-xs shrink-0">@</span>
+            <span className="w-9 h-9 rounded-lg bg-red-500 flex items-center justify-center text-white shrink-0">
+              <FaEnvelope size={16} />
+            </span>
             {contact.email}
           </a>
           <a href={`tel:${contact.phone.replace(/\s/g, '')}`} className="flex items-center gap-3 text-sm font-body text-slate-600 dark:text-slate-200">
-            <span className="w-9 h-9 rounded-full bg-navy dark:bg-mint flex items-center justify-center text-white dark:text-slate-900 text-xs shrink-0">T</span>
+            <span className="w-9 h-9 rounded-lg bg-emerald-500 flex items-center justify-center text-white shrink-0">
+              <FaPhone size={15} />
+            </span>
             {contact.phone}
           </a>
-          <div className="flex items-center gap-3 text-sm font-body text-slate-600 dark:text-slate-200">
-            <span className="w-9 h-9 rounded-full bg-navy dark:bg-mint flex items-center justify-center text-white dark:text-slate-900 text-xs shrink-0">L</span>
-            {contact.location}
-          </div>
         </div>
 
         <div className="flex gap-3 mt-5">
-          <a href={contact.linkedin} target="_blank" rel="noopener noreferrer" className="text-xs font-body font-medium border border-slate-300 dark:border-slate-600 text-slate-600 dark:text-slate-200 px-3 py-2 rounded-lg">
+          <a href={contact.linkedin} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-xs font-body font-medium text-white px-3 py-2 rounded-lg bg-[#0A66C2]">
+            <FaLinkedin size={16} />
             LinkedIn
           </a>
-          <a href={contact.github} target="_blank" rel="noopener noreferrer" className="text-xs font-body font-medium border border-slate-300 dark:border-slate-600 text-slate-600 dark:text-slate-200 px-3 py-2 rounded-lg">
+          <a href={contact.github} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-xs font-body font-medium text-white px-3 py-2 rounded-lg bg-slate-800 dark:bg-slate-950">
+            <FaGithub size={16} />
             GitHub
           </a>
         </div>
