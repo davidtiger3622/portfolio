@@ -1,16 +1,26 @@
-# React + Vite
+# David Wafula — Portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+![Portfolio screenshot](./public/screenshot.png)
 
-Currently, two official plugins are available:
+Personal portfolio site built with React, Vite, and Tailwind CSS. Live at [portfolio-self-chi-93.vercel.app](https://portfolio-self-chi-93.vercel.app).
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Features
 
-## React Compiler
+- Dashboard-style layout with sidebar navigation and mobile drawer
+- Light/dark theme toggle (persisted via localStorage)
+- Sections: Dashboard, Skills, Experience, Projects, Education, Contact
+- Contact form wired to EmailJS for real message delivery
+- Resume download
+- Featured projects: [Auth Microservice](https://github.com/davidtiger3622/auth-microservice) and [Personal Finance Tracker](https://github.com/davidtiger3622/finance-tracker)
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Tech Stack
 
-## Expanding the ESLint configuration
+React 19, Vite, Tailwind CSS, React Icons, EmailJS
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Deployment
+
+Deployed on Vercel, with EmailJS environment variables configured in the Vercel project settings for the contact form.
+
+## License
+
+MIT — see [LICENSE](./LICENSE).
