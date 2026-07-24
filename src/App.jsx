@@ -10,14 +10,25 @@ import Contact from './components/sections/Contact'
 
 function App() {
   const [activeSection, setActiveSection] = useState('dashboard')
+  const [sidebarOpen, setSidebarOpen] = useState(false)
+
+  const handleNavigate = (section) => {
+    setActiveSection(section)
+    setSidebarOpen(false)
+  }
 
   return (
     <div className="flex bg-white dark:bg-slate-900 min-h-screen">
-      <Sidebar activeSection={activeSection} setActiveSection={setActiveSection} />
-      <main className="flex-1">
-        <Topbar activeSection={activeSection} />
-        <div className="px-8 pb-8">
-          {activeSection === 'dashboard' && <Dashboard onNavigate={setActiveSection} />}
+      <Sidebar
+        activeSection={activeSection}
+        setActiveSection={handleNavigate}
+        sidebarOpen={sidebarOpen}
+        onClose={() => setSidebarOpen(false)}
+      />
+      <main className="flex-1 min-w-0">
+        <Topbar activeSection={activeSection} onMenuClick={() => setSidebarOpen(true)} />
+        <div className="px-4 sm:px-6 lg:px-8 pb-8">
+          {activeSection === 'dashboard' && <Dashboard onNavigate={handleNavigate} />}
           {activeSection === 'skills' && <Skills />}
           {activeSection === 'experience' && <Experience />}
           {activeSection === 'projects' && <Projects />}
