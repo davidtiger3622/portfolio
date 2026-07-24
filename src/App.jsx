@@ -2,6 +2,7 @@ import { useState } from 'react'
 import Sidebar from './components/Sidebar'
 import Topbar from './components/Topbar'
 import Dashboard from './components/sections/Dashboard'
+import Skills from './components/sections/Skills'
 
 function App() {
   const [activeSection, setActiveSection] = useState('dashboard')
@@ -13,6 +14,7 @@ function App() {
         <Topbar activeSection={activeSection} />
         <div className="px-8 pb-8">
           {activeSection === 'dashboard' && <Dashboard />}
+          {activeSection === 'skills' && <Skills />}
         </div>
       </main>
     </div>
